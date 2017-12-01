@@ -19,6 +19,8 @@ var cur_menu = null;
 
 function init() {
 
+    console.log("called init");
+
     // -- TEST CORS --
     // $.ajax({
     //     type: "GET",
@@ -355,6 +357,9 @@ function saveProgress() {
 
 function initBoard() {
 
+    ExprManager.setDefaultFadeLevel(100);
+    $('#fade_status').text('OFF');
+
     canvas = document.getElementById('canvas');
 
     if (canvas.getContext) {
@@ -571,8 +576,8 @@ function toggleMute() {
 
 function toggleFading() {
     if ($('#fade_status').text() === 'OFF') {
-        ExprManager.setDefaultFadeLevel(0);
-        $('#fade_status').text('ON');
+        ExprManager.setDefaultFadeLevel(100);
+        $('#fade_status').text('OFF');
     } else {
         ExprManager.setDefaultFadeLevel(100);
         $('#fade_status').text('OFF');
